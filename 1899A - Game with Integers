@@ -1,0 +1,22 @@
+#include <iostream>
+#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        string s;
+        int n;
+        cin>>n;
+        if(n%3==0){
+            s="Second";
+
+        }
+        else{
+            s="First";
+        }
+        cout<<s<<'\n';
+    }
+}
