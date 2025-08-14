@@ -1,0 +1,76 @@
+#include <iostream>
+#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+ 
+int main(){
+    int t;
+    cin>>t;
+ 
+    while(t--){
+        int n;
+        cin>>n;
+        vector<int> arr(n);
+        for(int i=0;i<n;i++){
+            cin>>arr[i];
+        }
+ 
+        int num1=arr[0];
+        int num2=arr[1];
+        int count1=0;
+        int count2=0;
+        string answer="No";
+        bool wow=true;
+ 
+        if(num1==num2){
+            for(int i=0;i<n;i++){
+                if(arr[i]!=num1){
+                    num2=arr[i];
+                    break;
+                }
+            }
+        }
+ 
+        for(int i=0;i<n;i++){
+            if(arr[i]==num1){
+                count1+=1;
+            }
+            else if(arr[i]==num2){
+                count2+=1;
+ 
+            }
+            else{
+                answer="No";
+                wow=false;
+                break;
+                
+            }
+            
+            
+        }
+        if(count1==count2 && wow){
+            answer="Yes";
+ 
+        }
+        else if(count1==count2-1 && wow){
+            answer="Yes";
+ 
+ 
+        }
+ 
+        else if(count2==count1-1 && wow){
+            answer="Yes";
+ 
+ 
+ 
+        }
+        else if(count1==n || count2==n){
+            answer="Yes";
+ 
+ 
+        }
+ 
+        cout<<answer<<endl;
+    }
+ 
+}
