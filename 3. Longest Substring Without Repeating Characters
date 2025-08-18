@@ -1,0 +1,72 @@
+class Solution {
+public:
+    int func(char letter){
+            return (int)letter; 
+            
+        }
+    int lengthOfLongestSubstring(string s) {
+        if(s==""){
+            return 0;
+        }
+        
+        int size=s.size();
+        if(size==0){
+            return 0;
+        }
+        if(size==1){
+            return 1;
+        }
+        
+        
+
+        
+        int count=1;
+        int left=0;
+        int right=1;
+        
+        int list[256]={0};
+        int max=0;
+
+        
+        int val9=func(s[left]);
+        list[val9]=1;
+        
+        
+        
+        
+        
+        
+        
+        
+
+        while(left<size && right<size){
+            char new_letter=s[right];
+            int val=func(new_letter);
+            if(list[val]!=1){
+                list[val]=1;
+                count+=1;
+                right+=1;
+            }
+            else{
+                if(count>max){
+                    max=count;
+                }
+                char letter2=s[left];
+                int val2=func(letter2);
+                list[val2]=0;
+                count-=1;
+                left+=1;
+                
+                
+            }
+            
+            
+        }
+        if(count>max){
+            max=count;
+        }
+        return max;
+        
+        
+    }
+};
